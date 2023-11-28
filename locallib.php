@@ -133,7 +133,7 @@ function local_recompletion_get_config($course) {
     // We could also combine the settings values so that the code calling it doesn't need to do this.
     if (!empty($dbconfig)) {
         foreach ($dbconfig as $key => $value) {
-            if ($config[$key] !== $value) {
+            if (!isset($config[$key]) || $config[$key] !== $value) {
                 $config[$key] = $value;
             }
         }

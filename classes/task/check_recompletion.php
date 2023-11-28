@@ -121,7 +121,7 @@ class check_recompletion extends \core\task\scheduled_task {
         $DB->delete_records_select('course_modules_completion', $selectsql, $params);
         // Removal of course_modules_viewed data (#78).
 
-        $selectsql = 'userid = ? AND coursemoduleid IN (SELECT id FROM {course_modules} WHERE course = ?)';
+        /*$selectsql = 'userid = ? AND coursemoduleid IN (SELECT id FROM {course_modules} WHERE course = ?)';
         if (!empty(get_config('local_recompletion', 'forcearchivecompletiondata')) || $config->archivecompletiondata) {
             $cmc = $DB->get_records_select('course_modules_viewed', $selectsql, $params);
             foreach ($cmc as $cid => $unused) {
@@ -130,7 +130,7 @@ class check_recompletion extends \core\task\scheduled_task {
             }
             $DB->insert_records('local_recompletion_cmv', $cmc);
         }
-        $DB->delete_records_select('course_modules_viewed', $selectsql, $params);
+        $DB->delete_records_select('course_modules_viewed', $selectsql, $params);*/
 
     }
 
